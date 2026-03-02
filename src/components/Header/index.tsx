@@ -6,7 +6,7 @@ export function Header() {
             <div className="w-full flex max-w-7xl mx-auto items-center justify-between">
                 <div>
                     <Link href="/">
-                        <h1 className='text-2x1 pl-1 font-bold hover:tracking-widest duration-300'><span className='text-blue-500'>DEV</span>CONTROLE</h1>
+                        <h1 className='text-2x1 pl-1 font-bold hover:tracking-widest duration-300'><span className='text-blue-500'>DEV</span>CONTROLE!</h1>
                     </Link>
                 </div>
                 <div className='flex items-center px-2 gap-2'>
