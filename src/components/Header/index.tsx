@@ -16,6 +16,7 @@ export function Header() {
     const { status, data } = useSession();
 
 
+    console.log(status);
     return (
         <header className="w-full flex px-2 h-20 bg-white shadow-sm">
             <div className="w-full flex max-w-7xl mx-auto items-center justify-between">
@@ -38,6 +39,8 @@ export function Header() {
                         <FiLock size={26} color="#4b5563" />
                     </button>
                 )}
+
+                
 
                 {status === 'authenticated' && (
                     <div className='flex items-center px-2 gap-2'>
