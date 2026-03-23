@@ -25,6 +25,7 @@ model Customer {
 
   ownerId    String @db.ObjectId
   created_by String @db.ObjectId
+  tickets Ticket[] @relation("TicketCustomer")
 
   owner     User? @relation("CustomerOwner", fields: [ownerId], references: [id])
   createdBy User? @relation("CustomerCreatedBy", fields: [created_by], references: [id])
@@ -40,9 +41,11 @@ model Ticket {
 
   signedTo    String @db.ObjectId
   createdById String @db.ObjectId
+  customerId  String @db.ObjectId
 
   signed   User? @relation("TicketSigned", fields: [signedTo], references: [id])
   createBy User? @relation("TicketCreatedBy", fields: [createdById], references: [id])
+  customer Customer? @relation("TicketCustomer", fields: [customerId], references: [id])
 }
 
 model User {

@@ -68,7 +68,7 @@ export function NewCustomerForm() {
             <Input type="text" name="address" error={errors.address?.message} placeholder="Digite o endereço do cliente" register={register} />
 
 
-            <button type="submit" className='bg-blue-500 px-2 h-11 my-4 font-bold text-white'>Cadastrar</button>
+            <button type="submit" className='bg-blue-500 cursor-pointer px-2 h-11 my-4 font-bold text-white'>Cadastrar</button>
         </form >
     )
 }

@@ -6,6 +6,8 @@ import { Header } from '@/components/Header';
 
 import { AuthProvider } from "@/providers/auth";
 
+import { ModalProvider } from "@/providers/modal";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,8 +35,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
-          <Header />
-          {children}
+          <ModalProvider>
+            <Header />
+            {children}
+          </ModalProvider>
         </AuthProvider>
       </body>
     </html>

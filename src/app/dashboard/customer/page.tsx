@@ -13,10 +13,10 @@ export default async function Customers() {
     if (!session || !session.user)
         redirect('/');
 
-
     const customers = await prismaClient.customer.findMany({
         where: { ownerId: session?.user.id }
     })
+    console.log(customers)
 
     return (
         <Container>
@@ -34,6 +34,8 @@ export default async function Customers() {
                     ))}
 
                 </div>
+
+                {!customers.length && <p>Nenhum cliente encontrado!</p>}
             </main>
 
         </Container>

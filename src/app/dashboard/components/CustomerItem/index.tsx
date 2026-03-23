@@ -1,6 +1,25 @@
+"use client";
+
 import { CustomerProps } from "@/utils/customer.type"
+import { api } from '@/lib/api';
+import { custom } from "zod";
+import { useRouter } from "next/navigation";
 
 export function CustomerItem({ customer }: { customer: CustomerProps }) {
+
+    const router = useRouter();
+    async function handleDeleteCustomer() {
+
+        const response = await api.delete('/api/customer', {
+            params: {
+                id: customer.id
+            }
+        });
+
+        router.refresh();
+        console.log(response.data.message);
+    }
+
     return (
         <div className="border-2 flex flex-col gap-2 min-w-10 rounded-b-sm rounded py-2 px-3 border-gray-100 hover:scale-105 duration-300">
             <div><b>Nome:</b> <span>{customer.name}</span></div>
@@ -8,7 +27,7 @@ export function CustomerItem({ customer }: { customer: CustomerProps }) {
             <div><b>Telefone:</b> <span>{customer.phone}</span></div>
 
 
-            <button className="text-white self-start mt-2 bg-red-600 text-xs py-1 px-2 rounded cursor-pointer">Deletar</button>
+            <button className="text-white self-start mt-2 bg-red-600 text-xs py-1 px-2 rounded cursor-pointer" onClick={handleDeleteCustomer}>Deletar</button>
 
 
         </div>
